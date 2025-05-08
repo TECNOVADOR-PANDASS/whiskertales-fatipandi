@@ -5,9 +5,11 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import HomePage from "./pages/home";
 import AdminPage from "./pages/admin";
+import GamePage from "./pages/game";
+import CollaborativePage from "./pages/collaborative";
 import NotFound from "./pages/not-found";
 
-// Configurar las rutas de la aplicación
+// Configure application routes
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPage />
+  },
+  {
+    path: "/game",
+    element: <GamePage />
+  },
+  {
+    path: "/collaborative",
+    element: <CollaborativePage />
   }
 ]);
 

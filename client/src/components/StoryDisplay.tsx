@@ -5,6 +5,7 @@ import AnimalIllustration from "./AnimalIllustration";
 import PrintStory from "./PrintStory";
 import { motion } from "framer-motion";
 import { useReadingProgress } from "@/lib/stores/useReadingProgress";
+import StoryGameIntegration from "./game/StoryGameIntegration";
 
 interface Story {
   title: string;
@@ -21,12 +22,13 @@ interface StoryDisplayProps {
 
 const StoryDisplay = ({ story, onNewStory }: StoryDisplayProps) => {
   const [isPrinting, setIsPrinting] = useState(false);
+  const [showGameSection, setShowGameSection] = useState(false);
   const storyRef = useRef<HTMLDivElement>(null);
   const { incrementStoriesRead } = useReadingProgress();
 
-  // Actualizar el progreso de lectura cuando se muestra una nueva historia
+  // Update reading progress when a new story is displayed
   useEffect(() => {
-    // Incrementar el contador de historias leídas
+    // Increment the stories read counter
     incrementStoriesRead(story.title);
   }, [story.title, incrementStoriesRead]);
 
@@ -36,6 +38,11 @@ const StoryDisplay = ({ story, onNewStory }: StoryDisplayProps) => {
       window.print();
       setIsPrinting(false);
     }, 100);
+  };
+
+  // Toggle game section visibility
+  const toggleGameSection = () => {
+    setShowGameSection(prev => !prev);
   };
 
   // Parse story content into paragraphs
@@ -71,13 +78,23 @@ const StoryDisplay = ({ story, onNewStory }: StoryDisplayProps) => {
         </div>
         
         <div className="flex flex-wrap gap-4 mt-8 justify-between no-print">
-          <Button 
-            variant="outline" 
-            size="lg"
-            onClick={onNewStory}
-          >
-            Create New Story
-          </Button>
+          <div className="flex gap-2">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={onNewStory}
+            >
+              Create New Story
+            </Button>
+            
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={toggleGameSection}
+            >
+              {showGameSection ? "Hide Interactive Game" : "Play Interactive Game"}
+            </Button>
+          </div>
           
           <Button 
             variant="default" 
@@ -89,6 +106,17 @@ const StoryDisplay = ({ story, onNewStory }: StoryDisplayProps) => {
           </Button>
         </div>
       </FormContainer>
+      
+      {/* Game section */}
+      {showGameSection && (
+        <div className="no-print">
+          <StoryGameIntegration 
+            animal={story.animal}
+            childName={story.childName}
+            theme={story.theme}
+          />
+        </div>
+      )}
       
       {/* Hidden component for printing */}
       {isPrinting && <PrintStory story={story} />}

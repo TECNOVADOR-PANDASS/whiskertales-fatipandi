@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import StoryGenerator from "./components/StoryGenerator";
 import StoryDisplay from "./components/StoryDisplay";
 import AnimatedBackground from "./components/AnimatedBackground";
@@ -6,6 +7,7 @@ import ReadingProgressSection from "./components/ReadingProgressSection";
 import { useAudio } from "./lib/stores/useAudio";
 import { useGame } from "./lib/stores/useGame";
 import { cn } from "./lib/utils";
+import { Button } from "./components/ui/button";
 
 interface Story {
   title: string;
@@ -70,14 +72,23 @@ function App() {
         
         <footer className="text-center text-sm text-muted-foreground mt-12 pb-6">
           <p>© {new Date().getFullYear()} Dreamy Tales. Sweet dreams!</p>
-          <p className="mt-2">
-            <a 
-              href="/admin" 
-              className="text-primary hover:underline text-xs"
-            >
-              Administración
-            </a>
-          </p>
+          <div className="flex justify-center gap-4 mt-4">
+            <Link to="/game">
+              <Button variant="outline" size="sm">
+                Play 3D Game
+              </Button>
+            </Link>
+            <Link to="/collaborative">
+              <Button variant="outline" size="sm">
+                Collaborative Stories
+              </Button>
+            </Link>
+            <Link to="/admin">
+              <Button variant="ghost" size="sm">
+                Admin
+              </Button>
+            </Link>
+          </div>
         </footer>
       </div>
     </div>

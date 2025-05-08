@@ -41,3 +41,4 @@ waitForPort = 5000
 
 [rules.formatter.fileExtensions.".ts"]
 id = "module:web/languageServer:typescript-language-server"
+edita la parte del juego en 3d y dale un diceño mas vivido y con caracteres del planeta 
