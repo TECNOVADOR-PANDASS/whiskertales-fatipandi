@@ -77,7 +77,7 @@ const AnimatedBackground = () => {
         ))}
       </div>
       
-      <style jsx>{`
+      <style>{`
         @keyframes twinkle {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.7; }
