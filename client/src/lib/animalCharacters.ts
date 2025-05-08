@@ -27,6 +27,14 @@ const animalCharacters: Record<string, AnimalCharacter[]> = {
       habitat: "forest",
       specialAbility: "lightning-fast running and the ability to sense danger",
       funFact: "rabbits perform a special jump called a 'binky' when they're happy, twisting their body and kicking their feet in the air"
+    },
+    {
+      type: "Rabbit",
+      name: "Cotton",
+      description: "snow-white",
+      habitat: "wildflower field",
+      specialAbility: "finding hidden paths and creating cozy burrows",
+      funFact: "baby rabbits are called kittens, and they can leave their nest when they're only three weeks old"
     }
   ],
   "Fox": [
@@ -315,6 +323,96 @@ const animalCharacters: Record<string, AnimalCharacter[]> = {
       habitat: "tropical jungle",
       specialAbility: "using tools like sticks to get food and making over 30 different sounds to communicate",
       funFact: "monkeys in Japan learn to use vending machines, trading coins for food, and they even choose their favorite snacks"
+    }
+  ],
+  "Dragon": [
+    {
+      type: "Dragon",
+      name: "Ember",
+      description: "fiery",
+      habitat: "mountain cave",
+      specialAbility: "breathing magical flames and flying high above the clouds",
+      funFact: "in many legends, dragons are the wisest creatures and often guard special treasures or magical knowledge"
+    },
+    {
+      type: "Dragon",
+      name: "Scales",
+      description: "rainbow-colored",
+      habitat: "enchanted valley",
+      specialAbility: "creating beautiful light shows with their shimmering scales and telling riddles",
+      funFact: "ancient stories say that dragon tears can heal any illness and grant special wishes"
+    }
+  ],
+  "Unicorn": [
+    {
+      type: "Unicorn",
+      name: "Sparkle",
+      description: "pearly-white",
+      habitat: "magical meadow",
+      specialAbility: "making flowers grow with every step and bringing sweet dreams",
+      funFact: "unicorns are said to be able to purify water just by touching it with their magical horn"
+    },
+    {
+      type: "Unicorn",
+      name: "Stardust",
+      description: "silver-maned",
+      habitat: "crystal forest",
+      specialAbility: "creating rainbows and healing small hurts with their gentle touch",
+      funFact: "legends say that unicorns can only be approached by those with pure hearts and kind intentions"
+    }
+  ],
+  "Butterfly": [
+    {
+      type: "Butterfly",
+      name: "Flutter",
+      description: "rainbow-winged",
+      habitat: "flower garden",
+      specialAbility: "transforming from a caterpillar and carrying messages on the wind",
+      funFact: "butterflies taste with their feet! They have taste sensors on their legs to know if a leaf is good to lay eggs on"
+    },
+    {
+      type: "Butterfly",
+      name: "Nectar",
+      description: "delicate",
+      habitat: "wildflower meadow",
+      specialAbility: "pollinating flowers and dancing gracefully on the breeze",
+      funFact: "monarch butterflies travel over 2,500 miles during migration, one of the longest insect journeys in the world"
+    }
+  ],
+  "Octopus": [
+    {
+      type: "Octopus",
+      name: "Inky",
+      description: "clever",
+      habitat: "coral city",
+      specialAbility: "changing colors to match any background and squeezing through tiny spaces",
+      funFact: "octopuses have three hearts, blue blood, and are considered the smartest invertebrates in the ocean"
+    },
+    {
+      type: "Octopus",
+      name: "Tentacles",
+      description: "shape-shifting",
+      habitat: "underwater cave",
+      specialAbility: "solving puzzles and using tools with their eight arms",
+      funFact: "an octopus can regrow a lost arm, and that arm will still respond to stimuli even when detached!"
+    }
+  ],
+  "Dinosaur": [
+    {
+      type: "Dinosaur",
+      name: "Rex",
+      description: "ancient",
+      habitat: "prehistoric jungle",
+      specialAbility: "telling stories about the ancient world and roaring loudly",
+      funFact: "some dinosaurs had brains the size of walnuts despite having enormous bodies"
+    },
+    {
+      type: "Dinosaur",
+      name: "Tricy",
+      description: "gentle giant",
+      habitat: "fern valley",
+      specialAbility: "protecting friends with their strong shield-like frill",
+      funFact: "a dinosaur called Argentinosaurus was so huge it weighed as much as 17 elephants put together!"
     }
   ]
 };

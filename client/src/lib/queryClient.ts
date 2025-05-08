@@ -23,6 +23,25 @@ export async function apiRequest(
   return res;
 }
 
+interface ApiOptions {
+  url: string;
+  method: string;
+  body?: string;
+}
+
+// Función auxiliar para llamadas a API que devuelve directamente el JSON
+export async function apiJsonRequest<T = any>(options: ApiOptions): Promise<T> {
+  const res = await fetch(options.url, {
+    method: options.method,
+    headers: options.body ? { "Content-Type": "application/json" } : {},
+    body: options.body,
+    credentials: "include",
+  });
+
+  await throwIfResNotOk(res);
+  return await res.json() as T;
+}
+
 type UnauthorizedBehavior = "returnNull" | "throw";
 export const getQueryFn: <T>(options: {
   on401: UnauthorizedBehavior;

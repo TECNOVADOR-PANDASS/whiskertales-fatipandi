@@ -23,13 +23,15 @@ type StoryFormValues = z.infer<typeof storyFormSchema>;
 const animals = [
   "Rabbit", "Fox", "Bear", "Owl", "Elephant", "Lion", 
   "Turtle", "Wolf", "Giraffe", "Koala", "Tiger", "Penguin",
-  "Squirrel", "Hedgehog", "Panda", "Dolphin", "Monkey"
+  "Squirrel", "Hedgehog", "Panda", "Dolphin", "Monkey",
+  "Dragon", "Unicorn", "Butterfly", "Octopus", "Dinosaur"
 ];
 
 const themes = [
   "Kindness", "Courage", "Friendship", "Sharing", "Patience",
   "Honesty", "Perseverance", "Teamwork", "Curiosity", "Respect",
-  "Creativity", "Gratitude", "Adventure", "Nature", "Dreams"
+  "Creativity", "Gratitude", "Adventure", "Nature", "Dreams",
+  "Discovery", "Imagination", "Empathy", "Wisdom", "Joy"
 ];
 
 interface StoryGeneratorProps {

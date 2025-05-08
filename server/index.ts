@@ -1,10 +1,26 @@
 import express, { type Request, Response, NextFunction } from "express";
+import session from "express-session";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import adminRoutes from "./adminRoutes";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Configuración de la sesión
+app.use(session({
+  secret: 'dreamy-tales-secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 24 * 60 * 60 * 1000 // 1 día
+  }
+}));
+
+// Rutas de administrador
+app.use('/api/admin', adminRoutes);
 
 app.use((req, res, next) => {
   const start = Date.now();

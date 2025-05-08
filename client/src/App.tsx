@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StoryGenerator from "./components/StoryGenerator";
 import StoryDisplay from "./components/StoryDisplay";
 import AnimatedBackground from "./components/AnimatedBackground";
+import ReadingProgressSection from "./components/ReadingProgressSection";
+import { useAudio } from "./lib/stores/useAudio";
+import { useGame } from "./lib/stores/useGame";
 import { cn } from "./lib/utils";
 
 interface Story {
@@ -51,7 +54,12 @@ function App() {
         
         <main className="max-w-4xl mx-auto">
           {!story ? (
-            <StoryGenerator onStoryGenerated={handleStoryGenerated} />
+            <>
+              <StoryGenerator onStoryGenerated={handleStoryGenerated} />
+              <div className="mt-8">
+                <ReadingProgressSection />
+              </div>
+            </>
           ) : (
             <StoryDisplay 
               story={story} 
@@ -62,6 +70,14 @@ function App() {
         
         <footer className="text-center text-sm text-muted-foreground mt-12 pb-6">
           <p>© {new Date().getFullYear()} Dreamy Tales. Sweet dreams!</p>
+          <p className="mt-2">
+            <a 
+              href="/admin" 
+              className="text-primary hover:underline text-xs"
+            >
+              Administración
+            </a>
+          </p>
         </footer>
       </div>
     </div>

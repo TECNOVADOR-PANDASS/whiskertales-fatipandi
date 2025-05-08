@@ -262,6 +262,50 @@ export function getThematicPlot(theme: string): ThematicPlot {
     return plots[Math.floor(Math.random() * plots.length)];
   }
   
+  // Add generic plots for new themes if they don't exist
+  const genericThematicPlots: Record<string, ThematicPlot> = {
+    "Discovery": {
+      introduction: "Deep in the {habitat}, {animalName} the {description} {animalType} was always searching for something new to learn about.",
+      challenge: "While exploring a part of the {habitat} they'd never seen before, {animalName} discovered something unusual and mysterious that no one could explain.",
+      resolution: "With careful observation and help from wise friends, {animalName} solved the mystery, revealing something wonderful that would help all the animals.",
+      learning: "The experience taught {animalName} that new discoveries happen when we're brave enough to explore beyond what we already know.",
+      moralMessage: "The greatest discoveries often come from having the courage to venture into the unknown"
+    },
+    "Imagination": {
+      introduction: "{animalName} the {animalType} was known throughout the {habitat} for having the most extraordinary imagination and telling the most fantastic stories.",
+      challenge: "When the other animals became too focused on their daily routines and forgot how to play and dream, the {habitat} became a dull place lacking in color and joy.",
+      resolution: "{animalName} created an amazing imaginative game that reminded everyone how to see the magic in everyday things, bringing back wonder and creativity.",
+      learning: "The animals realized that imagination isn't just for fun—it helps them solve problems in new ways and makes life more beautiful and interesting.",
+      moralMessage: "Imagination is the doorway to possibilities that logical thinking alone might never discover"
+    },
+    "Empathy": {
+      introduction: "In the diverse community of the {habitat}, {animalName} the {animalType} had a special gift for understanding how others felt just by looking in their eyes.",
+      challenge: "A newcomer to the {habitat} was acting unkindly, and the other animals wanted to exclude them. {animalName} sensed there was more to the story than everyone realized.",
+      resolution: "By spending time with the newcomer, {animalName} discovered they were scared and lonely, helping them express their feelings and connect with the community in a better way.",
+      learning: "{animalName} showed everyone that understanding others' feelings helps turn potential enemies into friends and creates stronger communities.",
+      moralMessage: "When we try to understand how others feel, magical connections can happen"
+    },
+    "Wisdom": {
+      introduction: "{animalName} the {animalType} was younger than most animals in the {habitat} but was always asking questions that made even the oldest animals think deeply.",
+      challenge: "A difficult situation arose that divided the community, with different groups of animals arguing about the best solution, each convinced they were right.",
+      resolution: "Instead of picking sides, {animalName} listened to everyone and found the valuable truth in each perspective, helping create a solution that combined the best ideas.",
+      learning: "The animals learned from {animalName} that true wisdom often comes not from knowing all the answers but from asking good questions and listening with an open heart.",
+      moralMessage: "Wisdom is found not in having all the answers, but in being willing to consider all possibilities"
+    },
+    "Joy": {
+      introduction: "Even on gloomy days in the {habitat}, {animalName} the {animalType} could always find something to be happy about, spreading cheer wherever they went.",
+      challenge: "After a long, difficult season, many animals became grumpy and stopped appreciating the good things they still had, focusing only on their problems.",
+      resolution: "{animalName} organized a celebration of little joys, helping each animal rediscover simple pleasures like fresh berries, cool breezes, and the laughter of friends.",
+      learning: "The community discovered that joy isn't just something that happens to you—it's a way of seeing the world that you can choose even during difficult times.",
+      moralMessage: "Joy can be found in any circumstance if we take time to notice the small wonders around us"
+    }
+  };
+  
+  // Check if we have a generic plot for the theme
+  if (genericThematicPlots[theme]) {
+    return genericThematicPlots[theme];
+  }
+  
   // If no plots found for this theme, create a generic one
   return {
     introduction: "Once upon a time in a beautiful land, there lived a special animal named {animalName} the {animalType}, who was known for being very {description}.",

@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FormContainer } from "@/components/ui/form-container";
 import AnimalIllustration from "./AnimalIllustration";
 import PrintStory from "./PrintStory";
 import { motion } from "framer-motion";
+import { useReadingProgress } from "@/lib/stores/useReadingProgress";
 
 interface Story {
   title: string;
@@ -21,6 +22,13 @@ interface StoryDisplayProps {
 const StoryDisplay = ({ story, onNewStory }: StoryDisplayProps) => {
   const [isPrinting, setIsPrinting] = useState(false);
   const storyRef = useRef<HTMLDivElement>(null);
+  const { incrementStoriesRead } = useReadingProgress();
+
+  // Actualizar el progreso de lectura cuando se muestra una nueva historia
+  useEffect(() => {
+    // Incrementar el contador de historias leídas
+    incrementStoriesRead(story.title);
+  }, [story.title, incrementStoriesRead]);
 
   const handlePrint = () => {
     setIsPrinting(true);
