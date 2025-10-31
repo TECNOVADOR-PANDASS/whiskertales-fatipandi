@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "bash", "web", "java-graalvm22.3"]
+modules = ["nodejs-20", "bash", "web"]
 run = "npm run dev"
 hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 
@@ -11,6 +11,7 @@ run = ["sh", "-c", "npm run dev"]
 
 [[ports]]
 localPort = 5000
+externalPort = 80
 
 [workflows]
 runButton = "Project"
@@ -32,13 +33,3 @@ author = "agent"
 task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
-
-[rules]
-
-[rules.formatter]
-
-[rules.formatter.fileExtensions]
-
-[rules.formatter.fileExtensions.".ts"]
-id = "module:web/languageServer:typescript-language-server"
-edita la parte del juego en 3d y dale un diceño mas vivido y con caracteres del planeta 
