@@ -1,8 +1,14 @@
 {
-  "buildCommand": "bash vercel-build.sh",
-  "outputDirectory": "client/dist",
-  "framework": "vite",
+  "version": 2,
+  "name": "whiskertales-fatipandi",
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "client/dist" }
+    }
+  ],
   "routes": [
-    { "src": "/(.*)", "dest": "/client/dist/index.html" }
+    { "src": "/(.*)", "dest": "client/dist/$1" }
   ]
 }
