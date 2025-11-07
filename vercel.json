@@ -1,5 +1,8 @@
 {
   "buildCommand": "bash vercel-build.sh",
-  "outputDirectory": "client/dist",
-  "framework": "vite"
+  "outputDirectory": "client/dist/public",
+  "framework": "vite",
+  "routes": [
+    { "src": "/(.*)", "dest": "/client/dist/public/$1" }
+  ]
 }
